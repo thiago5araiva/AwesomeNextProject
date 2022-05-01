@@ -16,19 +16,21 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@atoms/*": [
+      "@/components/*": ["./src/components/*"],
+      "@/atoms/*": [
         "./src/components/atoms/*",
         "./src/components/atoms/index",
         "./src/components/atoms/*/index"
       ],
-      "@molecules/*": [
+      "@/molecules/*": [
         "./src/components/molecules/*",
         "./src/components/molecules/index",
         "./src/components/molecules/*/index"
       ],
-      "@styles/*": ["./src/styles/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@/styles/*": ["./src/styles/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/helpers/*": ["./src/helpers/*"],
+      "@/services/*": ["./src/services/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

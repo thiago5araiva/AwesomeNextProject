@@ -1,0 +1,10 @@
+@mixin title() {
+  font-size: var(--title);
+  margin-bottom: 15px;
+  line-height: 150%;
+}
+
+@mixin text() {
+  font-size: var(--text);
+  line-height: 180%;
+}
