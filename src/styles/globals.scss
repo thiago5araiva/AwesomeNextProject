@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&family=Martel:wght@200;400;700&display=swap");
 
 :root {
-  --title: 36.65px;
-  --text: 16px;
-  --white: #ffffff;
-  --grey: #575354;
-  --light-grey: #646263;
-  --primary-color: #bc7a6c;
-  --primary-light: #ceaa9e;
-  --secondary-color: #985042;
-  --secondary-light: #b98578;
+  --font-title: "Karla", serif;
+  --font-text: "Martel", serif;
+
+  --primary-color: rgb(100, 98, 99);
+  --primary-color-light: rgba(100, 98, 99, 0.6);
+  --primary-color-dark: rgba(100, 98, 99, 0.8);
+  --secondary-color: rgb(152, 80, 66);
+  --tertiary-color: rgb(255, 255, 255);
 }
 
 html,

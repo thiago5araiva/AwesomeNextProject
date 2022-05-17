@@ -1,43 +1,46 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "@/components/Link";
-
+import Nav from "@/components/Nav";
 import styles from "@/styles/home.module.scss";
 
 const Home: NextPage = () => {
   return (
     <main>
-      <nav className="navbar fixed-top mt-3 mb-3">
-        <div className="container">
-          <Link href={"/"}>
-            <Image
-              src={require("@/assets/images/navbar__logo.png")}
-              alt="Picture of the author"
-              width={144}
-              height={39}
-            />
-          </Link>
-        </div>
-      </nav>
+      <Nav />
       <section className={`${styles.hero}`}>
+        <div className={styles.hero__image}>
+          <Image
+            src={require("@/assets/images/hero__image.png")}
+            alt="Picture of the author"
+            objectFit="cover"
+            layout="fill"
+            draggable="false"
+          />
+        </div>
         <div className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className={`${styles.hero__image}`}>
-              <Image
-                src={require("@/assets/images/hero__image.png")}
-                alt="Picture of the author"
-                layout="responsive"
-                objectFit="fill"
-              />
+          <div className="row justify-content-between align-items-center">
+            <div className="col-6">
+              <h1 className={styles.hero__title}>Se enxergue com mais amor!</h1>
+              <p className={styles.hero__text}>
+                Eu acredito que a beleza não tem tamanho, número ou cor. Que
+                cada cicatriz e marca é uma peça vital de uma história toda sua,
+                e que toda mulher pode ser seu próprio tipo de beleza. Quero que
+                você se sinta confortável em sua própria pele e celebre todos os
+                momentos de sua vida.
+              </p>
+            </div>
+            <div className="col-1">
+              <div className={`${styles.hero__control}`}></div>
+              <div className={styles.hero__control}></div>
+              <div className={styles.hero__control}></div>
             </div>
           </div>
         </div>
       </section>
-      {/* hero */}
-      <section className={styles.intro}>
+      {/* <section className={styles.intro}>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-sm-9 col-lg-6">
+            <div className="col-lg-6">
               <h2 className={`${styles.intro__title}`}>Mussum Ipsum</h2>
               <p className={`${styles.intro__text}`}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
@@ -52,7 +55,7 @@ const Home: NextPage = () => {
       <section className={styles.boudoir}>
         <div className="container">
           <div className="row align-items-center justify-content-center">
-            <div className="col-sm-9 col-lg-5 offset-lg-1">
+            <div className="col-lg-6">
               <h2 className={styles.boudoir__title}>Mussum Ipsum, cacildis.</h2>
               <p className={styles.boudoir__text}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
@@ -68,7 +71,7 @@ const Home: NextPage = () => {
                 obcaecati tempora distinctio nobis.
               </p>
             </div>
-            <div className="col-sm-9 col-lg-4 offset-lg-1">
+            <div className="col-lg-5 offset-lg-1">
               <div className={`${styles.hero__image}`}>
                 <Image
                   src={require("@/assets/images/boudoir__image.png")}
@@ -80,9 +83,9 @@ const Home: NextPage = () => {
         </div>
       </section>
       <section className={styles.about}>
-        <div className="container-fluid">
-          <div className={`row align-items-center ${styles.about__container}`}>
-            <div className="col-sm-9 col-lg-4">
+        <div className="container">
+          <div className={`row align-items-center`}>
+            <div className="col-lg-5">
               <div className={`${styles.about__image}`}>
                 <Image
                   src={require("@/assets/images/about__image.png")}
@@ -90,7 +93,7 @@ const Home: NextPage = () => {
                 />
               </div>
             </div>
-            <div className="col-sm-8 col-lg-4 offset-lg-1">
+            <div className="col-lg-6 offset-lg-1">
               <h2 className={styles.about__title}>
                 “Mussum Ipsum, Cacildis Litris Abertis”
               </h2>
@@ -106,137 +109,56 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
+
       <section className={styles.benefits}>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-sm-9 col-lg-4">
-              <div className={styles.benefits__item}>
-                <div className={styles.benefits__item__header}>
-                  <h2 className={styles.benefits__item__header__int}>01</h2>
-                  <h3 className={styles.benefits__item__header__title}>
-                    Mussum Ipsum, cacildis.
-                  </h3>
+            {[1, 2, 3].map((i, idx) => (
+              <div key={idx} className="col-lg-4">
+                <div className={styles.item}>
+                  <div className="d-flex align-items-center">
+                    <h2 className={styles.item__integer}>01</h2>
+                    <h3 className={styles.item__title}>
+                      Mussum Ipsum, cacildis.
+                    </h3>
+                  </div>
+                  <p className={styles.item__text}>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Odio suscipit in consequatur incidunt quidem id illum,
+                    voluptate eum delectus nulla vel praesentium.
+                  </p>
                 </div>
-                <p className={styles.benefits__item__text}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-                  suscipit in consequatur incidunt quidem id illum, voluptate
-                  eum delectus nulla vel praesentium.
-                </p>
               </div>
-            </div>
-            <div className="col-sm-9 col-lg-4">
-              <div className={styles.benefits__item}>
-                <div className={styles.benefits__item__header}>
-                  <h2 className={styles.benefits__item__header__int}>01</h2>
-                  <h3 className={styles.benefits__item__header__title}>
-                    Mussum Ipsum, cacildis.
-                  </h3>
-                </div>
-                <p className={styles.benefits__item__text}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-                  suscipit in consequatur incidunt quidem id illum, voluptate
-                  eum delectus nulla vel praesentium.
-                </p>
-              </div>
-            </div>
-            <div className="col-sm-9 col-lg-4">
-              <div className={styles.benefits__item}>
-                <div className={styles.benefits__item__header}>
-                  <h2 className={styles.benefits__item__header__int}>01</h2>
-                  <h3 className={styles.benefits__item__header__title}>
-                    Mussum Ipsum, cacildis.
-                  </h3>
-                </div>
-                <p className={styles.benefits__item__text}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-                  suscipit in consequatur incidunt quidem id illum, voluptate
-                  eum delectus nulla vel praesentium.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
       <section className={styles.price}>
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-sm-9 col-lg-10">
-              <div className={styles.price__header}>
-                <h2 className={styles.price__header__title}>Mussum Ipsum</h2>
-                <p className={styles.price__header__text}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-                  suscipit in consequatur incidunt quidem id illum, voluptate
-                  eum delectus nulla vel praesentium quae rem harum debitis,
-                  obcaecati tempora distinctio nobis.
+          <div className={styles.price__header}>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-3">
+                <h2 className={styles.price__title}>
+                  Isto não é apenas uma sessão de fotos
+                </h2>
+              </div>
+              <div className="col-5">
+                <p className={styles.price__subtitle}>
+                  É uma experiência! E eu desafio você a encontrar a coragem
+                  dentro de você para deixar sua luz brilhar .
                 </p>
               </div>
             </div>
           </div>
-          <div className="row justify-content-center">
-            <div className={`col-sm-7 col-lg-3 ${styles.price__container}`}>
-              <div
-                className={`${styles.price__item} ${styles.price__item__basic}`}
-              >
-                <div className={styles.price__item__content}>
-                  <h2 className={styles.price__item__title}>Para Viver</h2>
-                  <h3 className={styles.price__item__value}>
-                    <span className={styles.price__item__currency}>R$</span>869
-                  </h3>
-                  <ul>
-                    <li>12 fotos digitais</li>
-                    <li>1h30 hora de ensaio</li>
-                    <li>2 trocas de roupas</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className={`col-sm-7 col-lg-3 ${styles.price__container}`}>
-              <div
-                className={`${styles.price__item} ${styles.price__item__middle}`}
-              >
-                <div className={styles.price__item__content}>
-                  <h2 className={styles.price__item__title}>Para Viver</h2>
-                  <h3 className={styles.price__item__value}>
-                    <span className={styles.price__item__currency}>R$</span>
-                    1.260
-                  </h3>
-                  <ul>
-                    <li>25 fotos digitais</li>
-                    <li>2 horas de ensaio</li>
-                    <li>3 trocas de roupas</li>
-                    <li>Locação</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className={`col-sm-7 col-lg-3 ${styles.price__container}`}>
-              <div
-                className={`${styles.price__item} ${styles.price__item__premium}`}
-              >
-                <div className={styles.price__item__content}>
-                  <h2 className={styles.price__item__title}>Para Viver</h2>
-                  <h3 className={styles.price__item__value}>
-                    <span className={styles.price__item__currency}>R$</span>869
-                  </h3>
-                  <ul>
-                    <li>40 fotos digitais</li>
-                    <li>3 horas de ensaio</li>
-                    <li>4 trocas de roupas</li>
-                    <li>Video Making Off</li>
-                    <li>Case para fotos</li>
-                    <li>Locação</li>
-                    <li>Maquiagem</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PriceTable prices={price} />
         </div>
       </section>
+
       <section className={styles.faq}>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-sm-9 col-lg-10">
+            <div className="col-lg-10">
               <h2 className={styles.faq__title}>FAQ</h2>
               <div className="accordion" id="accordionPanelsStayOpenExample">
                 <div className={`accordion-item ${styles.faq__item}`}>
@@ -347,8 +269,8 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-      </section>
-      <footer className={styles.footer}></footer>
+      </section> */}
+      {/* <footer className={styles.footer}></footer> */}
     </main>
   );
 };
