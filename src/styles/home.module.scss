@@ -1,3 +1,5 @@
+@import "globals";
+
 .hero {
   display: flex;
   align-items: center;
@@ -5,38 +7,45 @@
   height: 100vh;
   background: linear-gradient(
     90deg,
-    rgba(87, 83, 84, 0.8) 48.76%,
+    rgba(102, 85, 95, 0.8) 48.76%,
     rgba(87, 83, 84, 0) 100%
   );
 
-  &__image {
-    z-index: -999;
-  }
-
   &__title {
-    font-family: var(--font-title);
-    font-size: 65px;
-    color: white;
+    @include title;
+    line-height: 67.85px;
+    color: $light;
+    padding-right: 24px;
     margin-bottom: 15px;
   }
 
   &__text {
-    font-family: var(--font-text);
-    font-size: 16px;
-    line-height: 29px;
+    @include text;
+    line-height: 26.21px;
     color: white;
+    padding-right: 24px;
   }
-  &__control {
-    height: 9px;
-    width: 9px;
-    border-radius: 100%;
-    background-color: var(--tertiary-color);
-    margin-bottom: 15px;
-    &:first-child {
-      background-color: var(--secondary-color);
+}
+
+.modal {
+  &__title {
+    font-family: var(--font-title);
+    font-size: 27px;
+  }
+  &__button {
+    font-family: var(--font-title);
+    font-size: 18px;
+    color: var(--primary-color);
+    border: 1px solid transparent;
+    background-color: transparent;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+      box-shadow: 0 0 0 0.25rem rgb(130 138 145 / 0%);
     }
-    &:last-child {
-      margin-bottom: 0;
-    }
+  }
+  &__submit {
+    color: var(--secondary-color);
   }
 }

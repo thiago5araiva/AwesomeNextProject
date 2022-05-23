@@ -1,0 +1,16 @@
+@import "../../styles/globals.scss";
+
+.button {
+  @include text;
+  height: 39px;
+  width: 167px;
+  border: none;
+  border-radius: 3px;
+  background-color: $secondary-color;
+  color: $light;
+  transition: 0.6s;
+  &:hover {
+    background-color: $light;
+    color: $secondary-color;
+  }
+}
