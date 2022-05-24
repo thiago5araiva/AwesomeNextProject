@@ -1,0 +1,11 @@
+@import "../../styles/globals";
+
+.modal {
+  &__header {
+    border: none;
+  }
+  &__title {
+    @include title;
+    font-size: 27px;
+  }
+}

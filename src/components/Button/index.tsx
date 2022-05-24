@@ -3,14 +3,22 @@ import styles from "./styles.module.scss";
 
 interface Props {
   customClass?: string;
-  target: string;
-  toggle: string;
+  target?: string;
+  toggle?: string;
   label: string;
+  onClick?: () => void;
 }
 
-const ButtonComponent = ({ customClass, target, toggle, label }: Props) => {
+const ButtonComponent = ({
+  customClass,
+  target,
+  toggle,
+  label,
+  onClick,
+}: Props) => {
   return (
     <button
+      onClick={onClick}
       className={`${styles.button} ${customClass}`}
       type="button"
       data-bs-toggle={toggle}
