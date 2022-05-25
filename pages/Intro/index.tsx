@@ -1,27 +1,13 @@
 import type { NextPage } from "next";
-import Navbar from "_components/Navbar";
-import Image from "_components/Image";
-import Button from "_components/Button";
-import Modal from "_components/Modal";
-import { firestore } from "@/services/firebase";
+import Navbar from "_components/navbar";
+import Image from "_components/image";
+import Button from "_components/button";
+import Modal from "_components/modal";
 import { collection, addDoc } from "firebase/firestore";
 
 import styles from "./styles.module.scss";
 
 const Home: NextPage = () => {
-  async function handleFirebase() {
-    try {
-      const docRef = await addDoc(collection(firestore, "users"), {
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815,
-      });
-      console.log(docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  }
-
   return (
     <main>
       <Navbar />

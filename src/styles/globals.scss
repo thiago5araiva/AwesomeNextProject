@@ -5,13 +5,14 @@ $font-text: "Martel Sans", sans-serif;
 /**COLORS**/
 $primary-color: rgb(100, 98, 99);
 $secondary-color: rgb(152, 80, 66);
+$tertiary-color: rgba(232, 209, 205);
 $light: rgb(255, 255, 255);
 $dark: rgb(87, 83, 84);
-
 /**MIXINS**/
 @mixin title {
   font-family: $font-title;
   font-size: 61.68px;
+  color: $dark;
 }
 @mixin text {
   font-family: $font-text;
@@ -19,4 +20,5 @@ $dark: rgb(87, 83, 84);
   font-weight: 300;
   line-height: normal;
   letter-spacing: 1.6px;
+  color: $dark;
 }
