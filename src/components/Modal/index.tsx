@@ -85,12 +85,6 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
     setError(false);
   }, [data]);
 
-  async function handleAlreadySubscribers() {
-    const leads = await getSubscribersLeads();
-    console.log(leads);
-  }
-  handleAlreadySubscribers();
-
   return (
     <div
       className={`modal fade ${styles.modal}`}

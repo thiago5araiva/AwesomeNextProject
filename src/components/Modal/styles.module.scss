@@ -49,6 +49,11 @@
       border: 1px solid rgba($secondary-color, 0.5);
     }
   }
+  &__close {
+    &:focus {
+      box-shadow: 0 0 0 0rem rgb(13 110 253 / 25%);
+    }
+  }
   &__button_close {
     background-color: transparent;
     &:hover {
