@@ -1,9 +1,8 @@
 import type { NextPage } from "next";
 import Navbar from "../../src/components/Navbar";
-import Image from "../../src/components/image";
-import Button from "../../src/components/button";
-import Modal from "../../src/components/modal";
-import { collection, addDoc } from "firebase/firestore";
+import Image from "../../src/components/Image";
+import Button from "../../src/components/Button";
+import Modal from "../../src/components/Modal";
 
 import styles from "./styles.module.scss";
 
