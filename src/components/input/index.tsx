@@ -8,14 +8,14 @@ interface Props {
   placeholder: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
-const InputComponent = ({
+function InputComponent({
   id,
   type,
   value,
   customClass,
   placeholder,
   onChange,
-}: Props): JSX.Element => {
+}: Props): JSX.Element {
   return (
     <input
       id={id}
@@ -31,6 +31,6 @@ const InputComponent = ({
       value={value}
     />
   );
-};
+}
 
 export default InputComponent;

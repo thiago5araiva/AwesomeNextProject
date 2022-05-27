@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
-import InputComponent from "../Input";
+import Input from "../Input";
 import styles from "./styles.module.scss";
 import { addSubscribeLeads } from "@/services/subscribersController";
 import {
@@ -105,7 +105,7 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
               facilis at quos reprehenderit repellat modi velit beatae quia.
             </h2>
             <form onSubmit={(e: React.SyntheticEvent) => handleSubmit(e)}>
-              <InputComponent
+              <Input
                 id="name"
                 type="text"
                 placeholder="Nome"
@@ -113,7 +113,7 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
                 value={data.name.value}
                 onChange={(e: React.SyntheticEvent) => handleInputs(e)}
               />
-              <InputComponent
+              <Input
                 id="email"
                 type="text"
                 placeholder="E-mail"
@@ -121,7 +121,7 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
                 value={data.email.value}
                 onChange={(e: React.SyntheticEvent) => handleInputs(e)}
               />
-              <InputComponent
+              <Input
                 id="phone"
                 type="text"
                 placeholder="Whatsapp"
