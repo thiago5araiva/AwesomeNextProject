@@ -21,22 +21,7 @@
     @include text;
     margin-bottom: 24px;
   }
-  &__input {
-    @include text;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid rgba($dark, 0.5);
-    padding: 0;
-    padding-bottom: 24px;
-    margin-bottom: 15px;
-    &::placeholder {
-      font-size: 12px;
-    }
-    &:focus {
-      box-shadow: none;
-      border-bottom: 1px solid rgba($secondary-color, 0.5);
-    }
-  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -70,5 +55,12 @@
       background-color: transparent;
       color: $secondary-color;
     }
+  }
+  &__status {
+    @include text;
+    font-size: 12px;
+    text-align: center;
+    color: $secondary-color;
+    opacity: 1;
   }
 }

@@ -1,5 +1,4 @@
-export function validationPhone(event: React.SyntheticEvent): string {
-  const value = (event.target as HTMLInputElement).value;
+export function validationPhone(value: string): string {
   var result = value.replace(/\D/g, "");
   result = result.replace(/^0/, "");
   if (result.length > 10) {
@@ -19,6 +18,10 @@ export function validationEmail(value: string): boolean {
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
   );
   return validation.test(value);
+}
+
+export function validationName(value: string) {
+  return value.length < 3 ? false : true;
 }
 
 // function handleSubmit(event: React.SyntheticEvent): boolean {
@@ -42,3 +45,5 @@ export function validationEmail(value: string): boolean {
 // }
 
 // useEffect(() => {}, [phone, email]);
+
+//

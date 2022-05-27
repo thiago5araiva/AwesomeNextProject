@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "./header";
 import Input from "_components/input";
 import styles from "./styles.module.scss";
 import { subscribeLeads } from "@/services/subscribersController";
-import { validationPhone, validationEmail } from "@/helpers/validations";
+import {
+  validationPhone,
+  validationEmail,
+  validationName,
+} from "@/helpers/validations";
 
 interface Props {
   id: string;
 }
 type Data = {
-  name: { value: string; valid: false };
-  email: { value: string; valid: false };
-  phone: { value: string; valid: false };
+  name: { value: string; valid: boolean };
+  email: { value: string; valid: boolean };
+  phone: { value: string; valid: boolean };
 };
 
 const ModalComponent = ({ id }: Props): JSX.Element => {
@@ -21,8 +25,62 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
     email: { value: "", valid: false },
     phone: { value: "", valid: false },
   });
+  const [error, setError] = useState<boolean>(true);
+  const btnRef = useRef(null);
 
-  function handleSubmit() {}
+  function handleInputs(e: React.SyntheticEvent): void {
+    const type = e.currentTarget.id;
+    const value = (e.currentTarget as HTMLInputElement).value;
+    if (type === "name") {
+      const isValid = validationName(value);
+      setData((prevState) => ({
+        ...prevState,
+        name: { value: value, valid: isValid },
+      }));
+    }
+
+    if (type === "email") {
+      const isValid = validationEmail(value);
+      setData((prevState) => ({
+        ...prevState,
+        email: { value: value, valid: isValid },
+      }));
+    }
+    if (type === "phone") {
+      const formatedPhone = validationPhone(value);
+      const isValid = formatedPhone.length === 15 ? true : false;
+      setData((prevState) => ({
+        ...prevState,
+        phone: {
+          value: formatedPhone,
+          valid: isValid,
+        },
+      }));
+    }
+  }
+
+  function handleSubmit(e: React.SyntheticEvent) {
+    e.preventDefault();
+
+    const lead = {
+      name: data.name.value,
+      email: data.email.value,
+      phone: data.phone.value,
+    };
+
+    if (data.name.valid && data.email.valid && data.phone.valid) {
+      setError(false);
+      subscribeLeads(lead);
+      const close = btnRef.current as any;
+      close !== null && close.click();
+    } else {
+      setError(true);
+    }
+  }
+
+  useEffect(() => {
+    setError(false);
+  }, [data]);
 
   return (
     <div
@@ -48,37 +106,32 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
             </h2>
             <form onSubmit={(e: React.SyntheticEvent) => handleSubmit(e)}>
               <Input
-                type="text"
                 id="name"
+                type="text"
                 placeholder="Nome"
                 customClass={styles.modal__input}
                 value={data.name.value}
-                error={data.name.valid}
+                onChange={(e: React.SyntheticEvent) => handleInputs(e)}
               />
               <Input
-                type="text"
                 id="email"
+                type="text"
                 placeholder="E-mail"
                 customClass={styles.modal__input}
                 value={data.email.value}
-                error={data.email.valid}
-                onChange={(e: React.SyntheticEvent) =>
-                  setEmail((e.target as HTMLInputElement).value)
-                }
+                onChange={(e: React.SyntheticEvent) => handleInputs(e)}
               />
               <Input
-                type="text"
                 id="phone"
-                value={data.name.value}
-                error={data.name.valid}
+                type="text"
                 placeholder="Whatsapp"
                 customClass={styles.modal__input}
-                onChange={(e: React.SyntheticEvent) =>
-                  setPhone(validationPhone(e))
-                }
+                value={data.phone.value}
+                onChange={(e: React.SyntheticEvent) => handleInputs(e)}
               />
               <div className={`modal-footer ${styles.modal__footer}`}>
                 <button
+                  ref={btnRef}
                   type="button"
                   className={`${styles.modal__button} ${styles.modal__button_close}`}
                   data-bs-dismiss="modal"
@@ -89,12 +142,17 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
                   type="submit"
                   className={styles.modal__button}
                   data-bs-dismiss={show}
+                  disabled={false}
                 >
                   Enviar
                 </button>
               </div>
-              {error ? <p>Preencha todos os campos corretamente</p> : null}
             </form>
+            {error && (
+              <p className={styles.modal__status}>
+                Preencha todos os campos corretamente
+              </p>
+            )}
           </div>
         </div>
       </div>

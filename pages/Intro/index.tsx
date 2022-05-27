@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         />
         <div className="container">
           <div className="row justify-content-between align-items-center">
-            <div className="col-6">
+            <div className="col-xl-6">
               <h1 className={styles.hero__title}>Se enxergue com mais amor</h1>
               <p className={styles.hero__text}>
                 Eu acredito que a beleza não tem tamanho, número ou cor. Que

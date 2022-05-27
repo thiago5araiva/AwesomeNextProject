@@ -1,1 +1,22 @@
 @import "../../styles/globals.scss";
+
+.input {
+  @include text;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba($dark, 0.5);
+  padding: 0;
+  padding-bottom: 24px;
+  margin-bottom: 15px;
+  &::placeholder {
+    font-size: 12px;
+  }
+  &:focus {
+    box-shadow: none;
+    border-bottom: 1px solid rgba($secondary-color, 0.5);
+  }
+  &__error {
+    border-bottom: 1px solid rgba(red, 0.5);
+    color: red;
+  }
+}
