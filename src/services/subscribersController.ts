@@ -1,4 +1,4 @@
-import { getFirestore } from "firebase/firestore";
+import { getDocs, getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
 import error from "next/error";
 import app from "./config";
@@ -11,7 +11,7 @@ interface Props {
   phone: string;
 }
 
-export async function subscribeLeads(data: Props) {
+export async function addSubscribeLeads(data: Props) {
   try {
     const docRef = await addDoc(collection(DB, "leads"), {
       name: data.name,
@@ -22,4 +22,13 @@ export async function subscribeLeads(data: Props) {
   } catch (e) {
     throw error;
   }
+}
+
+export async function getSubscribersLeads() {
+  let subscribers: object[] = [];
+  const querySnapshot = await getDocs(collection(DB, "leads"));
+  querySnapshot.forEach((doc) => {
+    subscribers.push(doc.data());
+  });
+  return subscribers;
 }

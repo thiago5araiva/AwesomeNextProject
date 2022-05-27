@@ -2,7 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Header from "./header";
 import Input from "_components/input";
 import styles from "./styles.module.scss";
-import { subscribeLeads } from "@/services/subscribersController";
+import {
+  addSubscribeLeads,
+  getSubscribersLeads,
+} from "@/services/subscribersController";
 import {
   validationPhone,
   validationEmail,
@@ -70,7 +73,7 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
 
     if (data.name.valid && data.email.valid && data.phone.valid) {
       setError(false);
-      subscribeLeads(lead);
+      addSubscribeLeads(lead);
       const close = btnRef.current as any;
       close !== null && close.click();
     } else {
@@ -81,6 +84,12 @@ const ModalComponent = ({ id }: Props): JSX.Element => {
   useEffect(() => {
     setError(false);
   }, [data]);
+
+  async function handleAlreadySubscribers() {
+    const leads = await getSubscribersLeads();
+    console.log(leads);
+  }
+  handleAlreadySubscribers();
 
   return (
     <div
