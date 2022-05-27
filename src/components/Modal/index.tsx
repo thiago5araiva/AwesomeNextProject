@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
-import Input from "../Input";
+import Input from "./Input";
 import styles from "./styles.module.scss";
 import { addSubscribeLeads } from "@/services/subscribersController";
 import {
