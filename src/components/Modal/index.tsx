@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./header";
-import Input from "_components/input";
+import Input from "../input";
 import styles from "./styles.module.scss";
 import {
   addSubscribeLeads,

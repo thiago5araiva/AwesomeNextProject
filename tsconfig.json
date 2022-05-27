@@ -16,7 +16,6 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "_components/*": ["/src/components/*", "/src/components/*/index"],
       "@/styles/*": ["./src/styles/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/helpers/*": ["./src/helpers/*"],
