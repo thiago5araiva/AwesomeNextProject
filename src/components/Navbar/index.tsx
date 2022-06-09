@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 const NavbarComponent = () => {
   return (
-    <nav className={`navbar ${styles.navbar} fixed-top`}>
+    <nav className={`navbar ${styles.navbar} sticky-top`}>
       <div className="container">
         <Link href={"/"}>
           <Image
