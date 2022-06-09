@@ -1,0 +1,59 @@
+@import "../../src/styles/globals.scss";
+
+.hero {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(102, 85, 95, 0.8) 48.76%,
+  //   rgba(87, 83, 84, 0) 100%
+  // );
+
+  &__title {
+    @include title;
+    line-height: 67.85px;
+    color: $light;
+    padding-right: 24px;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    @include text;
+    color: white;
+    line-height: 26.21px;
+    padding-right: 24px;
+    margin-bottom: 24px;
+  }
+}
+.about {
+  padding: 102px 0px;
+
+  &__title {
+    @include title;
+    margin-bottom: 15px;
+  }
+  &__text {
+    @include text;
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @media screen and (max-width: 1200.98px) {
+    padding: 63px 0px;
+    &__content {
+      margin-bottom: 63px;
+    }
+  }
+  @media screen and (max-width: 425.98px) {
+    &__title {
+      text-align: center;
+    }
+    &__text {
+      text-align: center;
+      padding: 0px 24px;
+    }
+  }
+}

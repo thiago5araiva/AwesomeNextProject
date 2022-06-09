@@ -10,7 +10,7 @@ const NavbarComponent = () => {
       <div className="container">
         <Link href={"/"}>
           <Image
-            src={require("@/assets/images/navbar-logo.png")}
+            src={require("_assets/images/navbar-logo.png")}
             alt="Picture of the author"
             width={144}
             height={39}

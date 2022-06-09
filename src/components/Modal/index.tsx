@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import Input from "./Input";
 import styles from "./styles.module.scss";
-import { addSubscribeLeads } from "@/services/subscribersController";
+import { addSubscribeLeads } from "_services/subscribersController";
 import {
   validationPhone,
   validationEmail,
   validationName,
-} from "@/helpers/validations";
+} from "_helpers/validations";
 
 interface Props {
   id: string;
