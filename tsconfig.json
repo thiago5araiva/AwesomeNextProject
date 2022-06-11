@@ -18,13 +18,13 @@
     "paths": {
       "_components/*": [
         "./src/components/*",
-        "./src/components/*/index",
-        "./src/components/index"
+        "./src/components/index",
+        "./src/components/*/index"
       ],
       "_styles/*": [
         "./src/styles/*",
-        "./src/styles/*/index",
-        "./src/styles/index"
+        "./src/styles/index",
+        "./src/styles/*/index"
       ],
       "_assets/*": [
         "./src/assets/*",
@@ -33,13 +33,13 @@
       ],
       "_helpers/*": [
         "./src/helpers/*",
-        "./src/helpers/*/index",
-        "./src/helpers/index"
+        "./src/helpers/index",
+        "./src/helpers/*/index"
       ],
       "_services/*": [
         "./src/services/*",
-        "./src/services/*/index",
-        "./src/services/index"
+        "./src/services/index",
+        "./src/services/*/index"
       ]
     }
   },
