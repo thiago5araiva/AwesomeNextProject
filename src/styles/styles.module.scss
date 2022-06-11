@@ -1,57 +1,112 @@
-@import "../../src/styles/globals.scss";
+@import "./globals";
 
 .hero {
-  @include full-width;
-  // background: linear-gradient(
-  //   90deg,
-  //   rgba(102, 85, 95, 0.8) 48.76%,
-  //   rgba(87, 83, 84, 0) 100%
-  // );
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: $secondary-color;
+
+  &__logo {
+    width: 240px;
+    margin-bottom: 39px;
+  }
   &__title {
     @include title;
-    line-height: 67.85px;
-    color: $light;
-    padding-right: 24px;
-    margin-bottom: 15px;
+    line-height: 90%;
+    margin-bottom: 39px;
+    max-width: 768px;
   }
-
   &__text {
     @include text;
-    color: white;
-    line-height: 26.21px;
-    padding-right: 24px;
+    line-height: 150%;
+    max-width: 768px;
     margin-bottom: 24px;
   }
+  @media screen and (max-width: 768px) {
+    height: 100%;
+    padding-top: 102px;
+    &__content {
+      padding: 0px 10%;
+    }
+    &__text {
+      margin-bottom: 39px;
+    }
+    &__image {
+      margin-top: 102px;
+    }
+  }
 }
-.about,
-.photographer {
-  padding-top: 102px;
+.about {
+  margin: 102px 0px;
   &__title {
     @include title;
-    margin-bottom: 15px;
+    font-size: 38.12px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  &__subtitle {
+    @include text;
+    text-align: center;
+    line-height: 160%;
+  }
+}
+.video {
+  &__count {
+    @include title;
+    font-size: 261.27px;
+    text-align: center;
+    line-height: 160%;
+  }
+}
+.action {
+  margin: 102px 0px;
+  &__title {
+    @include title;
+    margin-bottom: 24px;
   }
   &__text {
     @include text;
-    margin-bottom: 15px;
-    &:last-child {
-      margin-bottom: 0;
+    line-height: 180%;
+  }
+  &__notice {
+    @include text;
+    color: rgba(102, 85, 95, 0.9);
+  }
+  @media screen and (max-width: 992px) {
+    margin: 0px 0px;
+    margin-bottom: 102px;
+    &__form {
+      margin-top: 102px;
     }
   }
-
-  @media screen and (max-width: 1200.98px) {
-    padding-top: 63px;
-    &__content {
-      margin-bottom: 63px;
-    }
+}
+.faq {
+  margin-bottom: 102px;
+  &__title {
+    @include title;
+    margin-bottom: 39px;
   }
-
-  @media screen and (max-width: 425.98px) {
-    &__title {
-      text-align: center;
-    }
-    &__text {
-      text-align: center;
-      padding: 0px 24px;
-    }
+}
+.footer {
+  padding: 24px 0px;
+  background-color: #f7f7f7;
+  &__contacts {
+    list-style: none;
+  }
+  &__items {
+    margin-bottom: 9px;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    color: $primary-color;
+  }
+  &__icon {
+    margin-right: 15px;
+  }
+  &__line {
+    height: 9px;
+    background: #333;
   }
 }

@@ -2,21 +2,21 @@ import React from "react";
 import Link from "next/link";
 
 interface Props {
-  children?: React.ReactElement;
+  children?: React.ReactElement[] | any;
   label?: string;
-  className?: string;
+  customClass?: string;
   href: string;
 }
 
 const LinkComponent = ({
   children,
   href,
-  className,
+  customClass,
   label,
 }: Props): JSX.Element => {
   return (
     <Link href={href} passHref>
-      <a className={className}> {children ? children : label}</a>
+      <a className={customClass}> {children ? children : label}</a>
     </Link>
   );
 };

@@ -1,0 +1,18 @@
+@import "../../../styles/globals.scss";
+
+.input {
+  font-family: $font-title;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba($primary-color, 0.5);
+  padding: 0;
+  padding-bottom: 15px;
+  margin-bottom: 39px;
+  &::placeholder {
+    font-size: 16px;
+  }
+  &:focus {
+    box-shadow: none;
+    border-bottom: 1px solid rgba($secondary-color, 0.5);
+  }
+}

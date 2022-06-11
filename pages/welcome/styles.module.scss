@@ -1,0 +1,6 @@
+@import "../../src/styles/globals";
+.welcome {
+  &__title {
+    @include title;
+  }
+}

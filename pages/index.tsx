@@ -2,36 +2,50 @@ import type { NextPage } from "next";
 import Navbar from "_components/Navbar";
 import Image from "_components/Image";
 import Button from "_components/Button";
-import Modal from "_components/Modal";
+import Form from "_components/Form";
+import Accordion from "_components/Accordion";
 
 import styles from "_styles/styles.module.scss";
+import bg from "_assets/images/hero-image.png";
+import Link from "_components/Link";
 
 const Home: NextPage = () => {
   return (
     <main>
-      <Navbar />
-      <section className={`${styles.hero}`}>
-        <Image
-          src={require("_assets/images/hero-image.png")}
-          alt="Picture of the author"
-          layout="fill"
-          objectFit="cover"
-        />
-        <div className="container">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-md-9 col-lg-8 col-xl-6">
-              <h1 className={styles.hero__title}>Se enxergue com mais amor</h1>
-              <p className={styles.hero__text}>
-                Eu acredito que a beleza não tem tamanho, número ou cor. Que
-                cada cicatriz e marca é uma peça vital de uma história toda sua,
-                e que toda mulher pode ser seu próprio tipo de beleza. Quero que
-                você se sinta confortável em sua própria pele e celebre todos os
-                momentos de sua vida.
-              </p>
-              <Button
-                target="#staticBackdrop"
-                toggle="modal"
-                label="Saiba mais"
+      <section className={styles.hero}>
+        <div className="container-fluid">
+          <div className="row h-100 align-items-center justify-content-center">
+            <div className="col-md-9 col-lg-5 col-xl-5 col-xxl-5 offset-lg-1 offset-xl-1">
+              <div className={styles.hero__content}>
+                <Image
+                  src={require("_assets/images/logo-mirian.png")}
+                  alt="Picture of the author"
+                  customClass={styles.hero__logo}
+                />
+                <h1 className={styles.hero__title}>
+                  Para aumentar sua confiança
+                </h1>
+                <p className={styles.hero__text}>
+                  Ao longo do tempo, conhecendo e fotografando mulheres, vejo
+                  que existe um desejo em comum em todas: Elas querem ser
+                  lembradas. Mas não é raro, terem medo de viver algo novo, medo
+                  de experimentar. Elas não se sentem confiantes. Como, com o
+                  meu trabalho, eu poderia ajudar essas mulheres a confiarem
+                  mais em si mesmas ? - Com uma oportunidade. Com um pacote
+                  fotográfico novo. Com o PARA EXPERIMENTAR.
+                </p>
+                {/* <Button label="Experimente" /> */}
+              </div>
+            </div>
+            <div className="col-lg-5 col-xl-5 col-xxl-5 offset-lg-1 offset-xl-1 offset-xxl-1 p-0">
+              <div
+                className={styles.hero__image}
+                style={{
+                  backgroundSize: "cover",
+                  backgroundImage: `url(${bg.src})`,
+                  width: "100%",
+                  height: "100vh",
+                }}
               />
             </div>
           </div>
@@ -39,71 +53,100 @@ const Home: NextPage = () => {
       </section>
       <section className={styles.about}>
         <div className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="col-md-9 col-lg-8 col-xl-4">
-              <div className={styles.about__content}>
-                <h1 className={styles.about__title}>O Ensaio</h1>
-                <p className={styles.about__text}>
-                  Meu trabalho envolve os estilos de Fotografia de Boudoir e
-                  Retratos femininos.
-                </p>
-                <p className={styles.about__text}>
-                  A Fotografia de boudoir lê-se Buduah e quer dizer intimidade
-                  em Francês. Esse estilo envolve um certo nível de nudez
-                  (lingerie, roupa de dormir, outro vestuário íntimo ou nada). É
-                  destinada a abraçar a sexualidade, a independência, a
-                  feminilidade, a personalidade e a intimidade de uma mulher.
-                </p>
-                <p className={styles.about__text}>
-                  A Fotografia de retratos femininos. Esta é uma ótima opção
-                  para mulheres que podem ficar um pouco intimidadas com a idéia
-                  de mostrar muito para uma sessão de boudoir. Os looks podem
-                  ser um vestido de festa, rendas, drapeados, ou até uma calça
-                  jeans com aquela camiseta que você ama.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-9 col-lg-8 col-xl-5">
-              <Image
-                src={require("_assets/images/about-image.png")}
-                alt="Picture of the author"
-                customClass="offset-xl-1"
-                layout="responsive"
-              />
+          <div className="row justify-content-center">
+            <div className="col-sm-10 col-md-10 col-lg-8 col-xl-6 col-xxl-6">
+              <h2 className={styles.about__title}>Para experimentar</h2>
+              <p className={styles.about__subtitle}>
+                Um pacote especial, para você que quer viver uma experiência
+                fotográfica mas até hoje não se sentiu confiante para dizer Sim
+                a ela.
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <section className={styles.photographer}>
+      <section className={styles.video}>
         <div className="container">
-          <div className="row justify-content-center align-items-center">
-            <div className="order-2 order-sm-2 order-md-2 order-lg-1 col-md-9 col-lg-8 col-xl-4">
-              <Image
-                src={require("_assets/images/photographer-image.png")}
-                alt="Picture of the author"
-                layout="responsive"
+          <div className="row align-items-center justify-content-center">
+            <div className=" col-md-10 col-lg-6 col-xl-6 col-xxl-6">
+              <video
+                width={"100%"}
+                src={require("_assets/videos/para-experimentar.mp4")}
+                controls
               />
             </div>
-            <div className="order-1 order-sm-1 order-md-1 order-lg-2 col-md-9 col-lg-8 col-xl-5 offset-xl-1">
-              <div className={styles.photographer__content}>
-                <h1 className={styles.photographer__title}>
-                  “ Te ajudo a se enxergar mais com mais amor ”
-                </h1>
-                <p className={styles.photographer__text}>
-                  Oi, me chamo Mirian Olimpia, uma geminiana que odeia café
-                  fraco e adora dar palpites.Sou fotógrafa de mulheres e estou
-                  na missão de celebrar você , inspirar a sua confiança . Eu
-                  acredito na preservação das coisas simples, não sou de truques
-                  ou tendências, procuro me distanciar cada vez mais disso, e ao
-                  passo que me distancio, me encontro. Meu objetivo é poder te
-                  retratar da maneira mais orgânica e sincera possível.
-                </p>
-              </div>
+            <div className="col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+              <h2 className={styles.video__count}>15</h2>
             </div>
           </div>
         </div>
       </section>
-      <Modal id="staticBackdrop" />
+      <section className={styles.action}>
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-6 col-xxl-5">
+              <h2 className={styles.action__title}>Cadastre-se</h2>
+              <p className={styles.action__text}>
+                Você terá a oportunidade de Experimentar uma experiência
+                fotográfica, no mês de novembro. Mas as vagas são limitadas.
+                Para garantir a sua, basta cadastrar o seu e-mail. E seguir os
+                próximos passos.
+              </p>
+              <small className={styles.action__notice}>
+                * Ainda restam 15 vagas disponíveis
+              </small>
+            </div>
+            <div className="col-xl-5 offset-xl-1 col-xxl-6 offset-xxl-1">
+              <Form customClass={styles.action__form} />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={styles.faq}>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h2 className={styles.faq__title}>FAQ</h2>
+              <Accordion />
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer className={styles.footer}>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <ul className={styles.footer__contacts}>
+                <li>
+                  <Image
+                    src={require("_assets/images/logo-mirian.png")}
+                    alt="Picture of the author"
+                    customClass={styles.hero__logo}
+                  />
+                </li>
+                <li className={styles.footer__items}>62 99236-1972</li>
+                <li className={styles.footer__items}>
+                  contato@mirianolimpia.com.br
+                </li>
+                <li className={`${styles.footer__items} `}>
+                  <Link
+                    href="https://www.instagram.com/mirianolimpiafotos/"
+                    customClass={styles.footer__link}
+                  >
+                    <Image
+                      src={require("_assets/images/instagram-icon.png")}
+                      alt="Picture of the author"
+                      customClass={styles.footer__icon}
+                    />
+                    @mirianolimpiafotos
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div className={styles.footer__line}></div>
     </main>
   );
 };
