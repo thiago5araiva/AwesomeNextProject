@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Navbar from "_components/Navbar";
 import Image from "_components/Image";
 import Button from "_components/Button";
 import Form from "_components/Form";
